@@ -31,7 +31,7 @@ Results :
 
 
 Conclusions :
-![plot](./images/results1.pdf)
+![plot](./images/results1.png)
 
 
 
