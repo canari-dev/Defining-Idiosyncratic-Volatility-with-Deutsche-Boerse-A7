@@ -17,8 +17,11 @@ Another way to put it is that SX5E volatility and underlying stocks are very eas
 
 2/ A canArI user would rightly argue that the performance of his investment in options is determined by the "whole volatility", not not just idiosyncratic part of its futures moves. Two possibilities for them : either to neutralize the impact of underlying / Eurostoxx50 moves with cheap (in terms of bid-offer spread) hedging, or suplement the idiosyncratic estimator with another one focused specifically on stock moves and global (ie. SX5E) volatility.
 
---------------------------------------------------------
-# Now let's see what we really mean by idiosyncratic vol :
+# In canArI's indicators, we will often implicitely forecast and refer to the idiosyncratic vol moves rather than the ATM volatility moves.
+
+
+-------------------------------------------------------------------------------------------
+# Now let's see what we really mean by idiosyncratic vol  and what are its caracteristics  :
 
 The Jupyter Notebook provided here shows how to run a regression betwwen the volatility moves and explanatory factors.
 We will focus on 3 instances :
@@ -66,6 +69,9 @@ Graph : It is now a multiregression with 3 Xs : Underlying spot move, SX5E vol m
 Conclusions :
 The SX5E's vol is much more linked to the spot of its underlying than single stock vols.
 There is little room for idiosyncratic vol here, the vol is better arbitraged.
+
+
+
 
 
 
