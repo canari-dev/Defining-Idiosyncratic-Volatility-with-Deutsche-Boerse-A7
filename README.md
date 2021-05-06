@@ -1,4 +1,4 @@
-# Defining-Idiosyncratic-Volatility
+# Defining-Idiosyncratic-Volatility-with-Deutsche-Boerse-A7
 What part of the implicit vol movement can be explained by the underlying spot and the global market ?
 
 This project is based on Deutsche Börse's A7 service which provides intraday prices and visualization tools for all Xetra and Eurex instruments.
@@ -43,30 +43,29 @@ It is much better than the ATM vol which is very much linked to moves.
 Results :
 
 Graph : It is now a multiregression with 3 Xs : Underlying spot move, SX5E vol move, SX5E spot move
+![plot](./images/results2.png)
 
 
+Conclusions :
+First we can the SX5E explains c. 15% of variance on top of what the spot moves explains.
+Also, it is interesting to see that the R2 is significantly higher for lag of 1 day and more.
+This hints that over a few hours, the single stock vol can depart from it's mean spread with SX5E vol but will likely mean revert in a matter of 1/2 days.
+This poionts to potential mean reverting indicators...
 
-R^2		Single stock			SX5E		
-Lag	Regression on	ATM vol	Fixed Strike Vol	Forward Vol	ATM vol	Fixed Strike Vol	Forward Vol
-1 hour	Underlying spot move	58%	13%	43%	80%	22%	67%
-Underlying spot move + SX5E vol move + SX5E spot move	67%	25%	50%			
-1 day	Underlying spot move	56%	13%	54%	84%	31%	77%
-Underlying spot move + SX5E vol move + SX5E spot move	72%	40%	67%			
-1 week	Underlying spot move	55%	13%	56%	84%	28%	79%
-Underlying spot move + SX5E vol move + SX5E spot move	71%	41%	75%			
- 
-Context : 
-R^2 of an OLS regression on maturities between 2 and 12 months.
-All data capped at 3 standard deviations
-Period from April 2nd, 2019 to january the 31st, 2020.
-ATM vol is the at the money vol (Strike = Forward)
-Fixed strike vol is the vol of a strike fixed on the forward at the beginning of the period
-Forward vol is the forward vol between the nearby maturity and the considered maturity
-This question was important for us because our analysis focuses on the idiosyncratic vol and filters out movements which can be explained/hedged with unforecastable/liquid instruments like the underlying or the reference index (SX5E) vol/spot. 
-Following this study, we are likely to use fixed strike vol in order to graph vol movements for our users as it is closer to the idiosyncratic vol (ie. it doesn't carry additional variance steaming from unforecastable spot moves).
 
-Another idea was to use forward vol which is also less influenced by spot moves. This study doesn't encourage the use of forward vol as a proxy of the idiosyncratic vol, as the R2 of the regression on spot move is similar to the one with ATM vol. 
-The reason for this is that the overall variance of the forward vol is much smaller than the ATM volatility variance (by a factor 2). Indeed, it is a stable, differentiated parameter. So the variance explained by the spot move, is small but still represents a large chunk of the overall variance.
+3/ Now having a look at the Eurostoxx50 index alone (*)
+
+(mono regression of the vol moves on spot moves)
+
+Results :
+
+Graph : It is now a multiregression with 3 Xs : Underlying spot move, SX5E vol move, SX5E spot move
+![plot](./images/results3.png)
+
+
+Conclusions :
+The SX5E's vol is much more linked to the spot of its underlying than single stock vols.
+There is little room for idiosyncratic vol here, the vol is better arbitraged.
 
 
 
