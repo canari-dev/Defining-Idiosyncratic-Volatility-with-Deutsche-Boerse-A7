@@ -29,10 +29,20 @@ We will focus on 3 instances :
 
 Results :
 
-
-Conclusions :
+Graph : R2 factor of the regression ie. how much of the variance of Y can be explained by the regressors
 ![plot](./images/results1.png)
 
+
+Conclusions :
+The fixed strike vol is very close to the idiosyncratic vol (which would have 0% of R2).
+It is much better than the ATM vol which is very much linked to moves.
+
+
+2/ Adding the Eurostoxx50 spot and vol as regressors (*)
+
+Results :
+
+Graph : It is now a multiregression with 3 Xs : Underlying spot move, SX5E vol move, SX5E spot move
 
 
 
