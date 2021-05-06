@@ -2,7 +2,8 @@
 What part of the implicit vol movement can be explained by the underlying spot and the global market ?
 
 This project is based on Deutsche Börse's A7 service which provides intraday prices and visualization tools for all Xetra and Eurex instruments.
-Using this service, our earlier Git https://github.com/canari-dev/Options-calibration-with-Deutsche-Boerse-PDS shows how to iplicit volatility and forwards from options prices.
+Using this service, our earlier Git https://github.com/canari-dev/Trades-Dynamics-with-Deutsche-Boerse-A7 shows how to get implicit volatility and forwards from options prices.
+(see PricingAndCalibration.py and associated files)
 
 Building on this work, we are now going to define Idiosyncratic vol. Indeed, Canari.dev runs machine learning algorithms on market related time series in order to predict parameters move.
 
@@ -22,7 +23,16 @@ Another way to put it is that SX5E volatility and underlying stocks are very eas
 The Jupyter Notebook provided here shows how to run a regression betwwen the volatility moves and explanatory factors.
 We will focus on 3 instances :
 
-1/ Test :
+1/ Regressing the volatility moves on simulatneous underlying spot moves (*)
+
+(This idea is linked to the measure of realized smile)
+
+Results :
+
+
+Conclusions :
+![plot](./images/results1.png)
+
 
 
 
@@ -47,3 +57,12 @@ Following this study, we are likely to use fixed strike vol in order to graph vo
 
 Another idea was to use forward vol which is also less influenced by spot moves. This study doesn't encourage the use of forward vol as a proxy of the idiosyncratic vol, as the R2 of the regression on spot move is similar to the one with ATM vol. 
 The reason for this is that the overall variance of the forward vol is much smaller than the ATM volatility variance (by a factor 2). Indeed, it is a stable, differentiated parameter. So the variance explained by the spot move, is small but still represents a large chunk of the overall variance.
+
+
+
+(*) Context : 
+R^2 of an OLS regression on maturities between 2 and 12 months.
+All moves capped at 3 standard deviations
+Period from April 2nd, 2019 to january the 31st, 2020.
+- ATM vol is the at the money vol (Strike = Forward)
+- Fixed strike vol is the vol of a strike fixed on the forward at the beginning of the period
