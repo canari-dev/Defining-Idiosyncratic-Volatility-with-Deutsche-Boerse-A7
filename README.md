@@ -39,7 +39,7 @@ We will focus on 3 instances :
 
 (This idea is linked to the measure of realized smile)
 
-Graph : R2 factor of the regression ie. how much of the variance of Y can be explained by the regressors
+Table : R2 factor of the regression ie. how much of the variance of Y can be explained by the regressors
 ![plot](./images/results1.png)
 
 
@@ -50,7 +50,7 @@ It is better than the ATM vol whose variation are very much correlated to spot m
 
 # 2/ Adding the Eurostoxx50 spot and vol as regressors (*)
 
-Graph : It is now a multiregression with 3 Xs : Underlying spot move, SX5E vol move, SX5E spot move
+Table : It is now a multiregression with 3 Xs : Underlying spot move, SX5E vol move, SX5E spot move
 ![plot](./images/results2.png)
 
 
@@ -65,7 +65,7 @@ This hints at a potential mean reverting indicator...
 
 (mono regression of the vol moves on spot moves)
 
-Graph : It is now a multiregression with 3 Xs : Underlying spot move, SX5E vol move, SX5E spot move
+Table : It is now a multiregression with 3 Xs : Underlying spot move, SX5E vol move, SX5E spot move
 ![plot](./images/results3.png)
 
 
