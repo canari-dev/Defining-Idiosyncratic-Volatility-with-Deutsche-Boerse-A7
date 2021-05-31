@@ -61,7 +61,7 @@ This shows that over a few hours, the single stock vol can depart from it's mean
 This hints at a potential mean reverting indicator...
 
 
-# 3/ Now having a look at the Eurostoxx50 index alone (*)
+# 3/ Now having a look at the Eurostoxx50 vol its underlying movement
 
 (mono regression of the vol moves on spot moves)
 
