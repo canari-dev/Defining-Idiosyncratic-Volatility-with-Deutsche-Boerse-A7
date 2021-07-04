@@ -1,14 +1,17 @@
 # Defining-Idiosyncratic-Volatility-with-Deutsche-Boerse-A7
+_Canari.dev (www.canari.dev), April 2021_
+
 What part of the equity options' implicit volatility movement can be explained by the underlying spot moves and the global market ?
 
-This project is based on Deutsche Börse's A7 service which provides intraday prices and visualization tools for all Xetra and Eurex instruments.
-You will need a valid A7 subscription to run it. For this, please go to : https://www.mds.deutsche-boerse.com/mds-en/analytics/A7-analytics-platform
+**This project is based on Deutsche Börse's A7 service which provides intraday prices and visualization tools for all Xetra and Eurex instruments.<br>
+You will need a valid A7 subscription to run it. <br>
+For this, please go to : https://www.mds.deutsche-boerse.com/mds-en/analytics/A7-analytics-platform**
 
-This git uses results from our earlier Git https://github.com/canari-dev/Calibrating-implicit-volatility-surface-with-Deutsche-Boerse-A7 which shows how to get implicit volatility and forwards from options prices.
-You will need to run this preliminary git to generate the volatility time series that we use in this project.
+This git also uses results from our earlier project : https://github.com/canari-dev/Calibrating-implicit-volatility-surface-with-Deutsche-Boerse-A7 which shows how to get implicit volatility and forwards from options prices.<br>
+You will first need to run this preliminary git to generate the volatility time series that we use in this project.
 
 
-So, what is "Idiosyncratic Volatility"?
+# So, what is "Idiosyncratic Volatility"? # 
 
 Canari.dev runs machine learning algorithms on market related time series in order to predict parameters move.
 When focusing on single stock options' implicit volatility, Canari.dev focuses on the part of the movement of the vol which cannot be explained by the underlying/Eurstoxx50 movement. That's what we call the idiosyncratic volatility.
