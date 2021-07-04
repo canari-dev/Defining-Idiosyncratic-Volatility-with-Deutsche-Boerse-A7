@@ -2,29 +2,34 @@
 What part of the equity options' implicit volatility movement can be explained by the underlying spot moves and the global market ?
 
 This project is based on Deutsche Börse's A7 service which provides intraday prices and visualization tools for all Xetra and Eurex instruments.
-Using this service, our earlier Git https://github.com/canari-dev/Trades-Dynamics-with-Deutsche-Boerse-A7 shows how to get implicit volatility and forwards from options prices.
-(see PricingAndCalibration.py and associated files)
+You will need a valid A7 subscription to run it. For this, please go to : https://www.mds.deutsche-boerse.com/mds-en/analytics/A7-analytics-platform
 
-Building on this work, we are now going to define "Idiosyncratic Volatility".
+This git uses results from our earlier Git https://github.com/canari-dev/Calibrating-implicit-volatility-surface-with-Deutsche-Boerse-A7 which shows how to get implicit volatility and forwards from options prices.
+You will need to run this preliminary git to generate the volatility time series that we use in this project.
 
+
+So, what is "Idiosyncratic Volatility"?
 
 Canari.dev runs machine learning algorithms on market related time series in order to predict parameters move.
 When focusing on single stock options' implicit volatility, Canari.dev focuses on the part of the movement of the vol which cannot be explained by the underlying/Eurstoxx50 movement. That's what we call the idiosyncratic volatility.
 
 There are two reasons for that :
 
-1/ The more a parameter is specific and hard to trade (like a single stock vol), the more likely one is to find strong predictive signal on it because its price is less driven by arbitragers.
+1/ The more a parameter is specific and hard to trade (like a single stock implicit volatility), the more likely one is to find strong predictive signals on it because its price is less driven by arbitragers.
 That's why the idiosyncratic vol is where we can look for strong signals.
-In Machine Learning, you can not chase the proverbial two rabbits at the same time, so best focus on this part separatly.
-The SX5E volatility and the underlying stock of an option are very easy to trade and subject to intensive arbitrages, so coming up with forecast signal on these would require very different techniques and should be seen as a separate endeavour.
 
-2/ A canArI user would rightly argue that the performance of his investment in options is determined by the "whole volatility moves", not not just the idiosyncratic part.
+The SX5E volatility and the underlying stock of an option are very easy to trade and subject to intensive arbitrages, so coming up with forecast signal on these requires very different techniques and should be seen as a separate endeavour.
+
+This is the reason why, prior to running Machine Learnin algo, we split the volatility moves into market_move and indiosyncratic_move.
+This greatly improves ML efficiency.
+
+2/ An option trader would rightly argue that the performance of his investment in options is determined by the "whole volatility moves", not not just the idiosyncratic part.
 
 Two possible answers : 
 
-Either to neutralize the impact of underlying / Eurostoxx50 moves with cheap (in terms of bid-offer spread) hedging in stocks and SX5E options, 
-
-Or suplement the idiosyncratic vol estimator with others (necessarily weaker) signals, focused specifically on stock moves and global (ie. SX5E) volatility. Those signals would then be added to the idiosyncratic vol one after mutliplication by the relevant sensitivity (respectively vol/spot sensitivity and vol/volSX5E sensitivity)
+- Either to neutralize the impact (ie. hedge) of underlying / Eurostoxx50 moves with cheap (in terms of bid-offer spread) hedging in stocks and SX5E options, 
+Or
+- Suplement the idiosyncratic vol estimator with others (necessarily weaker) signals, focused specifically on stock moves and global (ie. SX5E) volatility. Those signals would then be added to the idiosyncratic vol after mutliplication by the relevant sensitivity (respectively vol/spot sensitivity and vol/volSX5E sensitivity)
 
 
 
