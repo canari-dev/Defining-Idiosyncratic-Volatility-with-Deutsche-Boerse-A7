@@ -7,6 +7,7 @@ What part of the equity options' implicit volatility movement can be explained b
 You will need a valid A7 subscription to run it. <br>
 For this, please go to : https://www.mds.deutsche-boerse.com/mds-en/analytics/A7-analytics-platform**
 
+
 This git also uses results from our earlier project : https://github.com/canari-dev/Calibrating-implicit-volatility-surface-with-Deutsche-Boerse-A7 which shows how to get implicit volatility and forwards from options prices.<br>
 You will first need to run this preliminary git to generate the volatility time series that we use in this project.
 
